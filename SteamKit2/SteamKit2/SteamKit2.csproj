@@ -65,7 +65,7 @@
     <Reference Include="System.Management" />
     <Reference Include="System.Xml" />
     <Reference Include="protobuf-net">
-      <HintPath>..\..\..\packages\protobuf-net.2.0.0.668\lib\net40\protobuf-net.dll</HintPath>
+      <HintPath>..\..\..\..\packages\protobuf-net.2.0.0.668\lib\net40\protobuf-net.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -191,6 +191,15 @@
     <Compile Include="Base\Generated\SteamMsgClientServer.cs" />
     <Compile Include="Dota\Handlers\DotaGCHandler\DotaGCHandler.cs" />
     <Compile Include="Dota\Handlers\DotaGCHandler\Callbacks.cs" />
+    <Compile Include="Networking\Proxy\AuthMethod.cs" />
+    <Compile Include="Networking\Proxy\AuthNone.cs" />
+    <Compile Include="Networking\Proxy\AuthUserPass.cs" />
+    <Compile Include="Networking\Proxy\IAsyncProxyResult.cs" />
+    <Compile Include="Networking\Proxy\ProxyException.cs" />
+    <Compile Include="Networking\Proxy\ProxySocket.cs" />
+    <Compile Include="Networking\Proxy\Socks4Handler.cs" />
+    <Compile Include="Networking\Proxy\Socks5Handler.cs" />
+    <Compile Include="Networking\Proxy\SocksHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="3rd party.txt">
@@ -241,6 +250,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
+  <ItemGroup>
+    <Folder Include="Networking\Proxy\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

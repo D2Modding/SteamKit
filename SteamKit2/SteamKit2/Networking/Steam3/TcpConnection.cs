@@ -11,6 +11,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Collections.Concurrent;
+using Org.Mentalis.Network.ProxySocket;
 
 namespace SteamKit2
 {
@@ -50,7 +51,11 @@ namespace SteamKit2
             // if we're connected, disconnect
             Disconnect();
 
-            Socket socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
+			ProxySocket socket = new ProxySocket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
+
+			socket.ProxyType = ProxyTypes.Socks5;
+			socket.ProxyEndPoint = new IPEndPoint (IPAddress.Parse ("127.0.0.1"), 9050);
+
             DebugLog.WriteLine( "TcpConnection", "Connecting to {0}...", endPoint );
 
             var cts = new CancellationTokenSource();
