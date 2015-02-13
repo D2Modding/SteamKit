@@ -141,7 +141,7 @@ namespace Org.Mentalis.Network.ProxySocket {
 		/// <exception cref="SocketException">An operating system error occurs while creating the Socket.</exception>
 		/// <exception cref="ObjectDisposedException">The Socket has been closed.</exception>
 		public new IAsyncResult BeginConnect(EndPoint remoteEP, AsyncCallback callback, object state) {
-			if (remoteEP == null || callback == null)
+			if (remoteEP == null)
 				throw new ArgumentNullException();
 			if (this.ProtocolType != ProtocolType.Tcp || ProxyType == ProxyTypes.None || ProxyEndPoint == null) {
 				return base.BeginConnect(remoteEP, callback, state);
